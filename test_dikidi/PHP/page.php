@@ -20,7 +20,7 @@ function webPath($relativePathForUrl)
 {
     $pathTheFile = str_replace(DIRECTORY_SEPARATOR, '/', $relativePathForUrl);
     $selfPath = substr($_SERVER["PHP_SELF"], 0, strrpos($_SERVER["PHP_SELF"], '/')) . '/' . WORK_DIRECTORY;
-    return ($_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["SERVER_NAME"] . $selfPath . $pathTheFile);
+    return ($_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["SERVER_NAME"] . $selfPath . '/' . $pathTheFile);
 }
 
 $currentDir = isset($_GET['dir']) ? $_GET['dir'] : '';
