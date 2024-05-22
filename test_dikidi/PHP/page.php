@@ -26,7 +26,11 @@ function webPath($relativePathForUrl)
 $currentDir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $currentPath = safeJoin($workingDirectory, $currentDir);
 
-$files = array_diff(scandir($currentPath), ['.', '..']);
+if ($currentPath && is_dir($currentPath)) {
+    $files = array_diff(scandir($currentPath), ['.', '..']);
+} else {
+    $files = [];
+}
 ?>
 
 <!DOCTYPE html>
